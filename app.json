@@ -1,0 +1,7 @@
+{
+  "name": "NutriFlow",
+  "displayName": "NutriFlow",
+  "version": "1.0.0",
+  "description": "Gesture-driven, offline-first calorie and nutrition tracking app",
+  "platforms": ["ios", "android"]
+}
