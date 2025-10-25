@@ -16,6 +16,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ThemeProvider, useTheme } from '@/core/theme';
 import { databaseService } from '@/data/database/DatabaseService';
 import { runMigrations } from '@/data/database/migrations';
+import { seedDatabase } from '@/data/database/seeds';
 import { RootNavigator } from '@/presentation/navigation/RootNavigator';
 
 /**
@@ -41,6 +42,10 @@ const AppInitializer: React.FC<{ children: React.ReactNode }> = ({ children }) =
       // Run migrations
       await runMigrations();
       console.log('Migrations completed');
+
+      // Seed database with initial data
+      await seedDatabase();
+      console.log('Database seeding completed');
 
       // Get database statistics
       const stats = await databaseService.getStatistics();
